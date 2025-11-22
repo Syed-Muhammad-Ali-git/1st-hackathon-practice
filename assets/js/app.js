@@ -1,5 +1,7 @@
 function displayUserInfo() {
+  
   const loggedInEmail = localStorage.getItem("loggedInUser");
+
   if (!loggedInEmail) {
     return;
   }
