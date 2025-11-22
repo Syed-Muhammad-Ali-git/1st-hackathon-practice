@@ -14,6 +14,9 @@
     />
   </head>
 
+  <!-- custom css link -->
+  <link rel="stylesheet" href="../../assets/css/login.css" />
+
   <body>
     <section class="vh-100">
       <div class="container py-5 h-100">
@@ -29,24 +32,23 @@
             <form id="loginForm">
               <!-- Email input -->
               <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="loginEmail">Email address</label>
                 <input
                   type="email"
-                  id="form1Example13"
+                  id="loginEmail"
                   class="form-control form-control-lg"
                 />
-                <label class="form-label" for="form1Example13"
-                  >Email address</label
-                >
               </div>
 
               <!-- Password input -->
               <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="loginPass">Password</label>
+
                 <input
                   type="password"
-                  id="form1Example23"
+                  id="loginPass"
                   class="form-control form-control-lg"
                 />
-                <label class="form-label" for="form1Example23">Password</label>
               </div>
 
               <div
@@ -67,6 +69,9 @@
                 </div>
                 <a href="#!">Forgot password?</a>
               </div>
+
+              <!-- Error message paragraph -->
+              <p id="loginError" class="text-danger"></p>
 
               <!-- Submit button -->
               <button
@@ -90,6 +95,6 @@
       crossorigin="anonymous"
     ></script>
     <!-- custom js link -->
-    <script src="../assets/js/login.js"></script>
+    <script src="../../assets/js/login.js"></script>
   </body>
 </html>

@@ -1,36 +1,38 @@
-// JavaScript for signin form validation and submission
-document
-  .getElementById("signinForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
+document.getElementById("signinForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const errorEl = document.getElementById("signinError");
+  errorEl.textContent = "";
 
-    const firstName = document.getElementById("form3Example1").value;
-    const lastName = document.getElementById("form3Example2").value;
-    const email = document.getElementById("form3Example3").value;
-    const password = document.getElementById("form3Example4").value;
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const email = document.getElementById("signUpEmail").value.trim();
+  const password = document.getElementById("signUpPass").value.trim();
 
-    // Basic validation
-    if (!firstName || !lastName || !email || !password) {
-      alert("Please fill in all fields.");
-      return;
-    }
+  if (!firstName || !lastName || !email || !password) {
+    errorEl.textContent = "Please fill in all fields.";
+    return;
+  }
 
-    if (!validateEmail(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
+  if (!validateEmail(email)) {
+    errorEl.textContent = "Please enter a valid email address.";
+    return;
+  }
 
-    if (password.length < 6) {
-      alert("Password must be at least 6 characters long.");
-      return;
-    }
+  if (password.length < 6) {
+    errorEl.textContent = "Password must be at least 6 characters long.";
+    return;
+  }
 
-    // Simulate sign up success (in a real app, this would be an API call)
-    alert("Sign up successful!");
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  if (users.some(u => u.email === email)) {
+    errorEl.textContent = "Email already registered.";
+    return;
+  }
 
-    // Optionally, redirect or perform other actions
-    // window.location.href = 'dashboard.html';
-  });
+  users.push({ firstName, lastName, email, password });
+  localStorage.setItem("users", JSON.stringify(users));
+  window.location.href = "../loginform/login.html";
+});
 
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
