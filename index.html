@@ -24,13 +24,20 @@
       <div class="row">
         <div class="col-md-6">
           <h2>About Us</h2>
-          <p>This is a practice project for hackathons. Explore our login and sign-up forms.</p>
+          <p>
+            This is a practice project for hackathons. Explore our login and
+            sign-up forms.
+          </p>
         </div>
         <div class="col-md-6">
           <h2>Quick Links</h2>
           <ul class="list-group">
-            <li class="list-group-item"><a href="./loginform/login.html">Login Form</a></li>
-            <li class="list-group-item"><a href="./sign-inform/signin.html">Sign Up Form</a></li>
+            <li class="list-group-item">
+              <a href="./pages/loginform/login.html">Login Form</a>
+            </li>
+            <li class="list-group-item">
+              <a href="./pages/sign-inform/signin.html">Sign Up Form</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -50,8 +57,8 @@
     <script src="./assets/js/app.js"></script>
     <script>
       // Check if user is logged in
-      if (!localStorage.getItem('loggedInUser')) {
-        window.location.href = './loginform/login.html';
+      if (!localStorage.getItem("loggedInUser")) {
+        window.location.href = "./pages/loginform/login.html";
       }
     </script>
   </body>

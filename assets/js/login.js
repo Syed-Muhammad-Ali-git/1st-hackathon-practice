@@ -24,14 +24,16 @@ document
     }
 
     // Check local storage for users
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.email === emailValue && u.password === passwordValue);
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(
+      (u) => u.email === emailValue && u.password === passwordValue
+    );
 
     if (user) {
       // Login successful
-      localStorage.setItem('loggedInUser', emailValue);
+      localStorage.setItem("loggedInUser", emailValue);
       alert("Login successful!");
-      window.location.href = '../../index.html'; // Redirect to home
+      window.location.href = "../../index.html"; // Redirect to home
     } else {
       alert("Invalid email or password.");
     }
